@@ -35,15 +35,10 @@ class LightColors implements IColors {
     appBarColor = colors.black;
     scaffoldBackgroundColor = colors.black;
     tabBarColor = colors.black;
-    tabbarNormalColor = colors.white;
+    tabbarNormalColor = AppColors().grey;
     tabbarSelectedColor = colors.red;
-
-    // buttonNormalColor = colors.green;
-    // buttonGoogleColor = colors.brightRed;
-    // inputTextButtonColor = colors.lightGrey;
-    // buttonSelectedColor = colors.green;
     colorScheme = const ColorScheme.light().copyWith(
-        onPrimary: colors.white, //xx Her ikisinde ortaktır
+        onPrimary: colors.white, 
         onSecondary: colors.red,
         onSurface: colors.white,
         primary: colors.red);

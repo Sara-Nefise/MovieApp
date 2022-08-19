@@ -1,4 +1,4 @@
-import 'package:movie_app/model/populerMovie_model.dart';
+import 'package:movie_app/model/similarMovies.dart';
 
 class ApiConstants {
   static String requestTokenUrl =
@@ -26,6 +26,18 @@ class ApiConstants {
   String actorMovies(String personId) {
     String path =
         'https://api.themoviedb.org/3/person/$personId/movie_credits?api_key=$apiKey&language=en-US';
+    return path;
+  }
+
+  String moviesVideos(String movieId) {
+    String path =
+        'https://api.themoviedb.org/3/movie/$movieId/videos?api_key=$apiKey&language=en-US';
+    return path;
+  }
+
+  String similarMovies(String movieId) {
+    String path =
+        'https://api.themoviedb.org/3/movie/$movieId/similar?api_key=$apiKey&language=en-US&page=1';
     return path;
   }
 }

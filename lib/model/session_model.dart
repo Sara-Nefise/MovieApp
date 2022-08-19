@@ -8,8 +8,8 @@ class sessionModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['session_id'] = this.sessionId;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['session_id'] = sessionId;
     return data;
   }
 }

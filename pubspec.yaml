@@ -18,6 +18,7 @@ dependencies:
   kartal: ^2.4.0
   widgetbook: ^2.4.1
   widgetbook_annotation: ^2.1.0
+  youtube_player_flutter: ^8.1.0
 
 dev_dependencies:
   flutter_lints: ^2.0.0

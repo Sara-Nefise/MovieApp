@@ -2,10 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
-import 'package:movie_app/core/constant/apiConstants.dart';
-import 'package:movie_app/model/token_model.dart';
-import 'package:movie_app/service/authenticationApi.dart';
-import 'package:movie_app/view/home/homeScreen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -19,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    timer = Timer.periodic(Duration(seconds: 4), (_) {
+    timer = Timer.periodic(const Duration(seconds: 4), (_) {
       Navigator.pushReplacementNamed(context, "/onboard");
     });
   }
@@ -33,7 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
+        body: SizedBox(
       height: double.infinity,
       width: double.infinity,
       child: Column(

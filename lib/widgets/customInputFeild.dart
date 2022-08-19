@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:kartal/kartal.dart';
 
 import '../core/init/theme/color/color_theme.dart';
 
@@ -41,7 +40,7 @@ class _CustomInputFeildState extends State<CustomInputFeild> {
                   });
                 },
               )
-            : SizedBox(),
+            : const SizedBox(),
         hintText: widget.hintText ?? '',
       ),
     );

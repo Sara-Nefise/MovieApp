@@ -1,13 +1,12 @@
-
-class populerMovie {
+class SimilarMovies {
   int? page;
   List<Results>? results;
   int? totalPages;
   int? totalResults;
 
-  populerMovie({this.page, this.results, this.totalPages, this.totalResults});
+  SimilarMovies({this.page, this.results, this.totalPages, this.totalResults});
 
-  populerMovie.fromJson(Map<String, dynamic> json) {
+  SimilarMovies.fromJson(Map<String, dynamic> json) {
     page = json['page'];
     if (json['results'] != null) {
       results = <Results>[];
@@ -44,8 +43,8 @@ class Results {
   String? releaseDate;
   String? title;
   bool? video;
+  double? voteAverage;
   int? voteCount;
-  num? voteAverage;
 
   Results(
       {this.adult,
@@ -75,8 +74,9 @@ class Results {
     posterPath = json['poster_path'];
     releaseDate = json['release_date'];
     title = json['title'];
-    voteAverage = json['vote_average'];
     video = json['video'];
+    voteAverage = json['vote_average'];
+    voteCount = json['vote_count'];
   }
 
   Map<String, dynamic> toJson() {
@@ -93,8 +93,8 @@ class Results {
     data['release_date'] = releaseDate;
     data['title'] = title;
     data['video'] = video;
-    data['vote_count'] = voteCount;
     data['vote_average'] = voteAverage;
+    data['vote_count'] = voteCount;
     return data;
   }
 }

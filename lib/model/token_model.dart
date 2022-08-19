@@ -12,10 +12,10 @@ class TokenModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['success'] = this.success;
-    data['expires_at'] = this.expiresAt;
-    data['request_token'] = this.requestToken;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['success'] = success;
+    data['expires_at'] = expiresAt;
+    data['request_token'] = requestToken;
     return data;
   }
 }

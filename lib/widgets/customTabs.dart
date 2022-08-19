@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 
+import 'package:movie_app/view/movieDetailPage/moviesVideosList.dart';
+import 'package:movie_app/view/movieDetailPage/similarMovieList.dart';
+
 class CustomTab extends StatefulWidget {
-  const CustomTab({Key? key}) : super(key: key);
+  String movieId;
+  CustomTab({
+    Key? key,
+    required this.movieId,
+  }) : super(key: key);
 
   @override
   State<CustomTab> createState() => _CustomTabState();
@@ -22,37 +29,27 @@ class _CustomTabState extends State<CustomTab> with TickerProviderStateMixin {
     return Column(
       children: [
         TabBar(
-          unselectedLabelColor: Colors.black,
-          labelColor: Colors.red,
-          tabs: [
+          labelStyle: context.textTheme.headline6,
+          indicatorWeight: 1,
+          tabs: const [
             Tab(
-              icon: Icon(Icons.person),
+              text: 'Videos',
             ),
             Tab(
-              icon: Icon(
-                Icons.add,
-              ),
+              text: 'Similar Movies',
             ),
           ],
           controller: _tabController,
           indicatorSize: TabBarIndicatorSize.tab,
         ),
         SizedBox(
-          height: context.dynamicHeight(0.3),
+          height: context.dynamicHeight(1),
           child: TabBarView(
-            children: [
-              Center(
-                child: Text(
-                  'Screen 1',
-                ),
-              ),
-              Center(
-                child: Text(
-                  'Screen 2',
-                ),
-              ),
-            ],
             controller: _tabController,
+            children: [
+              MoviesVideoList(movieId: widget.movieId),
+             SimilarMovieList(movieId: widget.movieId)
+            ],
           ),
         )
       ],

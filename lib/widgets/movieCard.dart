@@ -11,31 +11,39 @@ class movieCard extends StatelessWidget {
   Widget build(BuildContext context) {
     String Url = "https://image.tmdb.org/t/p/w500${movieModel?.posterPath}";
     return Hero(
-        tag: '${movieModel?.id}',
-        child: GestureDetector(
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => DetailScreen(result: movieModel)),
-            );
-          },
-          child: movieModel?.posterPath != null
-              ? Stack(children: [
-                  Container(
-                    margin: const EdgeInsets.only(left: 15),
-                    width: MediaQuery.of(context).size.width * 0.4,
-                    decoration: BoxDecoration(
-                        borderRadius: context.normalBorderRadius,
-                        image: DecorationImage(
-                            filterQuality: FilterQuality.low,
-                            fit: BoxFit.cover,
-                            image: NetworkImage(Url))),
-                  ),
-                  _rateContainer(context)
-                ])
-              : SizedBox(),
-        ));
+      tag: '${movieModel?.id}',
+      child: GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => DetailScreen(result: movieModel)),
+          );
+        },
+        child: movieModel?.posterPath != null
+            ? Stack(children: [
+                Container(
+                  //margin: const EdgeInsets.only(left: 10),
+                  width: MediaQuery.of(context).size.width * 0.42,
+                  decoration: BoxDecoration(
+                      borderRadius: context.normalBorderRadius,
+                      image: DecorationImage(
+                          filterQuality: FilterQuality.low,
+                          fit: BoxFit.cover,
+                          image: NetworkImage(Url))),
+                ),
+                _rateContainer(context)
+              ])
+            : Container(
+
+                //margin: const EdgeInsets.only(left: 15),
+                width: MediaQuery.of(context).size.width * 0.45,
+                decoration: BoxDecoration(
+                  color: AppColors().grey,
+                  borderRadius: context.normalBorderRadius,
+                )),
+      ),
+    );
   }
 
   Positioned _rateContainer(BuildContext context) {

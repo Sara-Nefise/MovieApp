@@ -17,7 +17,7 @@ class MovieActorsCubit extends Cubit<MovieActorsState> {
     try {
       ActorData? actorsData = await movieservice.getMovieCredits(movieId);
       emit(MovieActorsLoaded(actorsData!));
-    } on Exception catch (e) {
+    } on Exception {
       emit(MovieActorsFailure());
     }
   }

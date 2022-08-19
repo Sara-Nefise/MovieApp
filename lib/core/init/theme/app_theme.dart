@@ -21,7 +21,9 @@ ThemeData createTheme(ITheme theme) => ThemeData(
       cardColor: theme.colors.colorScheme?.onSecondary,
       bottomAppBarColor: theme.colors.scaffoldBackgroundColor,
       tabBarTheme: TabBarTheme(
-        indicator: const BoxDecoration(),
+         
+        indicator: UnderlineTabIndicator(
+              borderSide: BorderSide(color: AppColors().red)),
         labelColor: theme.colors.tabbarSelectedColor,
         unselectedLabelColor: theme.colors.tabbarNormalColor,
       ),

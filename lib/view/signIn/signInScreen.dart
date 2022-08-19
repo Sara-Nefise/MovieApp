@@ -1,16 +1,12 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:movie_app/core/constant/apiConstants.dart';
 import 'package:movie_app/core/init/theme/color/color_theme.dart';
 import 'package:kartal/kartal.dart';
-import 'package:movie_app/model/session_model.dart';
-import 'package:movie_app/model/token_model.dart';
-import 'package:movie_app/service/authenticationApi.dart';
 import 'package:movie_app/widgets/customElevatedButton.dart';
 import 'package:movie_app/widgets/customInputFeild.dart';
 
 class SignInScreen extends StatefulWidget {
-  SignInScreen({Key? key}) : super(key: key);
+  const SignInScreen({Key? key}) : super(key: key);
 
   @override
   State<SignInScreen> createState() => _SignInScreenState();
@@ -23,15 +19,15 @@ class _SignInScreenState extends State<SignInScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-          child: Container(
+          child: SizedBox(
               width: double.infinity,
               child: Column(
                 children: [
                   Expanded(
                       child: SizedBox(height: context.dynamicHeight(0.06))),
                   Expanded(
-                    child: Image.asset('assets/images/11.PNG'),
                     flex: 1,
+                    child: Image.asset('assets/images/11.PNG'),
                   ),
                   Expanded(
                     flex: 4,

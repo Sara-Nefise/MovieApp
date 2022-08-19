@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/core/init/theme/color/color_theme.dart';
 import 'package:movie_app/cubit/movieActor/movie_actors_cubit.dart';
-import 'package:movie_app/model/populerMovie_model.dart';
 import 'package:kartal/kartal.dart';
 import 'package:movie_app/view/movieDetailPage/actorCard.dart';
 import 'package:movie_app/widgets/coverImage.dart';
+import 'package:movie_app/widgets/customTabs.dart';
 import 'package:movie_app/widgets/featureContainer.dart';
 import '../../core/constant/apiConstants.dart';
 
@@ -28,7 +28,7 @@ class DetailScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.pop(context);
               },
-              icon: Icon(Icons.arrow_back))
+              icon: const Icon(Icons.arrow_back))
         ],
       ),
       body: SafeArea(
@@ -40,14 +40,14 @@ class DetailScreen extends StatelessWidget {
             url: imageUrl,
           ),
           _movieDetail(context),
-          _movieActors(context)
+          _movieActors(context),
+          CustomTab(movieId: (result?.id).toString(),)
         ],
       ))),
     );
   }
 
   Padding _movieDetail(BuildContext context) {
-    // bool tag = false;
     return Padding(
       padding: context.paddingNormal.copyWith(bottom: 0),
       child: SizedBox(

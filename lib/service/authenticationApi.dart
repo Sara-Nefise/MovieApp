@@ -23,6 +23,7 @@ class AuthenticationApi {
     } catch (e) {
       log(e.toString());
     }
+    return null;
   }
 
   Future<sessionModel?> makePostRequest(String? model) async {
@@ -51,5 +52,6 @@ class AuthenticationApi {
     } catch (e) {
       print(e);
     }
+    return null;
   }
 }

@@ -18,7 +18,7 @@ class ActorPersonalInfoCubit extends Cubit<ActorPersonalInfoState> {
     try {
       ActorPersonalInfo? actorsInfo = await movieservice.getActorsInfo(personId);
       emit(ActorPersonalInfoLoaded(actorsInfo!));
-    } on Exception catch (e) {
+    } on Exception {
       emit(ActorPersonalInfoFailure());
     }
   }

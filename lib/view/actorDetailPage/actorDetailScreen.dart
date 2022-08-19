@@ -4,7 +4,6 @@ import 'package:kartal/kartal.dart';
 import 'package:movie_app/core/init/theme/color/color_theme.dart';
 import 'package:movie_app/cubit/actorPersonalInfo/actor_personal_info_cubit.dart';
 import 'package:movie_app/view/actorDetailPage/actorMovies.dart';
-import 'package:movie_app/widgets/customTabs.dart';
 import 'package:movie_app/widgets/featureContainer.dart';
 
 import 'package:movie_app/model/actorData_model.dart';
@@ -44,7 +43,7 @@ class _ActorDetailScreenState extends State<ActorDetailScreen>
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                icon: Icon(Icons.arrow_back))
+                icon: const Icon(Icons.arrow_back))
           ],
         ),
         body: SafeArea(
@@ -121,11 +120,10 @@ class _ActorDetailScreenState extends State<ActorDetailScreen>
                           ActorMoviesScreen(
                             actorId: '${state.actorInfo?.id}',
                           ),
-                          CustomTab()
                         ])),
               ]));
             } else {
-              return Center(
+              return const Center(
                 child: Text('initial'),
               );
             }

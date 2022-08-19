@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 
-import 'package:movie_app/core/constant/apiConstants.dart';
-import 'package:movie_app/model/populerMovie_model.dart';
-import 'package:widgetbook_annotation/widgetbook_annotation.dart';
 
 class CoverImage extends StatelessWidget {
   String url;
