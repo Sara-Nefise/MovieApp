@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 
+import 'package:movie_app/model/movieVideos_model.dart';
+import 'package:movie_app/model/similarMovies.dart';
 import 'package:movie_app/view/movieDetailPage/moviesVideosList.dart';
 import 'package:movie_app/view/movieDetailPage/similarMovieList.dart';
 
 class CustomTab extends StatefulWidget {
-  String movieId;
+  MovieVideos? movieVideos;
+  SimilarMovies? similarMovies;
   CustomTab({
     Key? key,
-    required this.movieId,
+    required this.movieVideos,
+    required this.similarMovies,
   }) : super(key: key);
 
   @override
@@ -47,8 +51,10 @@ class _CustomTabState extends State<CustomTab> with TickerProviderStateMixin {
           child: TabBarView(
             controller: _tabController,
             children: [
-              MoviesVideoList(movieId: widget.movieId),
-             SimilarMovieList(movieId: widget.movieId)
+              MoviesVideoList(
+                movieVideos: widget.movieVideos,
+              ),
+              SimilarMovieList(similarMovies: widget.similarMovies)
             ],
           ),
         )

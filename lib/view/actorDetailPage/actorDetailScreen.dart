@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
 import 'package:movie_app/core/init/theme/color/color_theme.dart';
-import 'package:movie_app/cubit/actorPersonalInfo/actor_personal_info_cubit.dart';
+import 'package:movie_app/cubit/cubit/actor_info_cubit.dart';
+import 'package:movie_app/model/actorPersonalInfo_model.dart';
+import 'package:movie_app/model/actorData_model.dart';
+
 import 'package:movie_app/view/actorDetailPage/actorMovies.dart';
 import 'package:movie_app/widgets/featureContainer.dart';
 
-import 'package:movie_app/model/actorData_model.dart';
 import 'package:movie_app/widgets/coverImage.dart';
 
 class ActorDetailScreen extends StatefulWidget {
@@ -32,8 +34,8 @@ class _ActorDetailScreenState extends State<ActorDetailScreen>
 
   @override
   Widget build(BuildContext context) {
-    BlocProvider.of<ActorPersonalInfoCubit>(context)
-        .getActorsInfo((widget.castData?.id).toString());
+    BlocProvider.of<ActorInfoCubit>(context)
+        .getMovieInfo((widget.castData?.id).toString());
     String url =
         "https://image.tmdb.org/t/p/w500${widget.castData?.profilePath}";
     return Scaffold(
@@ -47,13 +49,14 @@ class _ActorDetailScreenState extends State<ActorDetailScreen>
           ],
         ),
         body: SafeArea(
-          child: BlocBuilder<ActorPersonalInfoCubit, ActorPersonalInfoState>(
+          child: BlocBuilder<ActorInfoCubit, ActorInfoState>(
               builder: (context, state) {
-            if (state is ActorPersonalInfoLoading) {
-              return const CircularProgressIndicator();
-            } else if (state is ActorPersonalInfoFailure) {
+            if (state is ActorInfoLoading) {
+              return Center(child: CircularProgressIndicator());
+            } else if (state is ActorInfoFailure) {
               return const Text('state error');
-            } else if (state is ActorPersonalInfoLoaded) {
+            } else if (state is ActorInfoLoaded) {
+              ActorPersonalInfo? actorData = state.data[0];
               return SingleChildScrollView(
                   child: Column(children: [
                 CoverImage(
@@ -68,7 +71,7 @@ class _ActorDetailScreenState extends State<ActorDetailScreen>
                           SizedBox(
                             width: context.dynamicHeight(0.25),
                             child: Text(
-                              '${state.actorInfo?.name}',
+                              '${actorData?.name}',
                               style: context.textTheme.headline5
                                   ?.copyWith(fontSize: 23),
                             ),
@@ -83,7 +86,7 @@ class _ActorDetailScreenState extends State<ActorDetailScreen>
                                       Icon(Icons.star, color: AppColors().red),
                                       context.emptySizedWidthBoxLow,
                                       Text(
-                                        '${state.actorInfo?.popularity}',
+                                        '${actorData?.popularity}',
                                         style: context.textTheme.bodyText1
                                             ?.copyWith(color: AppColors().red),
                                       ),
@@ -91,13 +94,13 @@ class _ActorDetailScreenState extends State<ActorDetailScreen>
                                       Icon(Icons.arrow_forward_ios,
                                           color: AppColors().red),
                                       context.emptySizedWidthBoxLow,
-                                      Text('${state.actorInfo?.birthday}',
+                                      Text('${actorData?.birthday}',
                                           style: context.textTheme.bodyText1),
                                     ],
                                   ),
                                 ),
                                 featureContainer(
-                                    text: state.actorInfo?.knownForDepartment),
+                                    text: actorData?.knownForDepartment),
                               ]),
                           context.emptySizedHeightBoxLow,
                           Text(
@@ -107,7 +110,7 @@ class _ActorDetailScreenState extends State<ActorDetailScreen>
                           ),
                           context.emptySizedHeightBoxLow,
                           Text(
-                            '${state.actorInfo?.biography}',
+                            '${actorData?.biography}',
                             style: context.textTheme.bodyText1,
                             maxLines: 7,
                           ),
@@ -118,7 +121,7 @@ class _ActorDetailScreenState extends State<ActorDetailScreen>
                                 color: AppColors().red, fontSize: 20),
                           ),
                           ActorMoviesScreen(
-                            actorId: '${state.actorInfo?.id}',
+                            actorMovies: state.data[1],
                           ),
                         ])),
               ]));

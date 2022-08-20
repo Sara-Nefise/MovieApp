@@ -2,18 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/core/init/theme/app_theme.dart';
-import 'package:movie_app/cubit/actorPersonalInfo/actor_personal_info_cubit.dart';
-import 'package:movie_app/cubit/actorsMovies/actors_movies_cubit.dart';
-import 'package:movie_app/cubit/movieActor/movie_actors_cubit.dart';
-import 'package:movie_app/cubit/moviesVideos/movies_videos_cubit.dart';
+import 'package:movie_app/cubit/MovieInfo_cubit/movie_informations_cubit.dart';
+import 'package:movie_app/cubit/cubit/actor_info_cubit.dart';
+
 import 'package:movie_app/cubit/populerMovie/movie_cubit.dart';
 import 'package:movie_app/service/movieService.dart';
 import 'package:movie_app/view/home/populerMovieList/populerMovie_list.dart';
 import 'package:movie_app/view/onboard/onboardScreen.dart';
 import 'package:movie_app/view/signIn/signInScreen.dart';
 import 'package:movie_app/view/splash/splashScreen.dart';
-
-import 'cubit/cubit/similar_movies_cubit.dart';
 
 void main() {
   runApp(MyApp());
@@ -28,11 +25,8 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => MovieCubit(movieservice)),
-        BlocProvider(create: (_) => MovieActorsCubit(movieservice)),
-        BlocProvider(create: (_) => ActorPersonalInfoCubit(movieservice)),
-        BlocProvider(create: (_) => ActorsMoviesCubit(movieservice)),
-        BlocProvider(create: (_) => MoviesVideosCubit(movieservice)),
-        BlocProvider(create: (_) => SimilarMoviesCubit(movieservice))
+        BlocProvider(create: (_) => MovieInformationsCubit(movieservice)),
+        BlocProvider(create: (_) => ActorInfoCubit(movieservice))
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

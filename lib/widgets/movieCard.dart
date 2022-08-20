@@ -36,7 +36,6 @@ class movieCard extends StatelessWidget {
               ])
             : Container(
 
-                //margin: const EdgeInsets.only(left: 15),
                 width: MediaQuery.of(context).size.width * 0.45,
                 decoration: BoxDecoration(
                   color: AppColors().grey,

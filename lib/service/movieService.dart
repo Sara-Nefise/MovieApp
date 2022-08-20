@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
 
+import 'package:dio/dio.dart';
 import 'package:movie_app/core/constant/apiConstants.dart';
 import 'package:movie_app/model/actorData_model.dart';
 import 'package:movie_app/model/actorPersonalInfo_model.dart';
@@ -26,80 +27,38 @@ class MovieService {
     return null;
   }
 
-  Future<ActorData?> getMovieCredits(String movieId) async {
-    try {
-      var uri = Uri.parse(ApiConstants().movieCasts(movieId));
-      final response = await http.get(uri);
-      print('${response.statusCode}');
-      if (response.statusCode == 200) {
-        ActorData? model = ActorData.fromJson(jsonDecode(response.body));
-        return model;
-      }
-    } catch (e) {
-      log(e.toString());
-    }
-    return null;
+  Future<List> getMovieInfo(String movieId) async {
+    final results = await Future.wait([
+      http.get(Uri.parse(ApiConstants().movieCasts(movieId))),
+      http.get(Uri.parse(ApiConstants().moviesVideos(movieId))),
+      http.get(Uri.parse(ApiConstants().similarMovies(movieId)))
+    ]);
+    ActorData? actors = ActorData.fromJson(jsonDecode(results[0].body));
+    MovieVideos? videos = MovieVideos.fromJson(jsonDecode(results[1].body));
+    SimilarMovies? similarMovies =
+        SimilarMovies.fromJson(jsonDecode(results[2].body));
+    // if (response.statusCode == 200) {
+
+    //   return model;
+    // }
+
+    return [actors, videos, similarMovies];
   }
 
-  Future<ActorPersonalInfo?> getActorsInfo(String personId) async {
-    try {
-      var uri = Uri.parse(ApiConstants().actorsInfo(personId));
-      final response = await http.get(uri);
-      print('${response.statusCode}');
-      if (response.statusCode == 200) {
-        ActorPersonalInfo? model =
-            ActorPersonalInfo.fromJson(jsonDecode(response.body));
-        return model;
-      }
-    } catch (e) {
-      log(e.toString());
-    }
-    return null;
+  Future<List> getActorsInfo(String personId) async {
+    final results = await Future.wait([
+      http.get(Uri.parse(ApiConstants().actorsInfo(personId))),
+      http.get(Uri.parse(ApiConstants().actorMovies(personId))),
+    ]);
+    ActorPersonalInfo? actorInfo =
+        ActorPersonalInfo.fromJson(jsonDecode(results[0].body));
+    ActorMovies? actorMovies = ActorMovies.fromJson(jsonDecode(results[1].body));
+    // if (results.statusCode == 200) {
+
+    //   return model;
+    // }
+    return [actorInfo, actorMovies];
   }
 
-  Future<ActorMovies?> getActorsMovies(String personId) async {
-    try {
-      var uri = Uri.parse(ApiConstants().actorMovies(personId));
-      final response = await http.get(uri);
-      print('${response.statusCode}');
-      if (response.statusCode == 200) {
-        ActorMovies? model = ActorMovies.fromJson(jsonDecode(response.body));
-        return model;
-      }
-    } catch (e) {
-      log(e.toString());
-    }
-    return null;
-  }
 
-  Future<MovieVideos?> getMoviesVideos(String movieId) async {
-    try {
-      var uri = Uri.parse(ApiConstants().moviesVideos(movieId));
-      final response = await http.get(uri);
-      print('${response.statusCode}');
-      if (response.statusCode == 200) {
-        MovieVideos? model = MovieVideos.fromJson(jsonDecode(response.body));
-        return model;
-      }
-    } catch (e) {
-      log(e.toString());
-    }
-    return null;
-  }
-
-  Future<SimilarMovies?> getSimilarVideos(String movieId) async {
-    try {
-      var uri = Uri.parse(ApiConstants().similarMovies(movieId));
-      final response = await http.get(uri);
-      print('${response.statusCode}');
-      if (response.statusCode == 200) {
-        SimilarMovies? model =
-            SimilarMovies.fromJson(jsonDecode(response.body));
-        return model;
-      }
-    } catch (e) {
-      log(e.toString());
-    }
-    return null;
-  }
 }

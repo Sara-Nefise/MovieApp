@@ -17,14 +17,14 @@ class MovieVideo extends StatefulWidget {
 
 class _MovieVideoState extends State<MovieVideo> {
   late bool _isPlayerReady;
-  late PlayerState _playerState;
-  late YoutubeMetaData _videoMetaData;
+  late PlayerState playerState;
+  late YoutubeMetaData videoMetaData;
   late YoutubePlayerController controller;
   void listener() {
     if (_isPlayerReady && mounted && !controller.value.isFullScreen) {
       setState(() {
-        _playerState = controller.value.playerState;
-        _videoMetaData = controller.metadata;
+        playerState = controller.value.playerState;
+        videoMetaData = controller.metadata;
       });
     }
   }
@@ -32,8 +32,8 @@ class _MovieVideoState extends State<MovieVideo> {
   @override
   void initState() {
     super.initState();
-    _videoMetaData = const YoutubeMetaData();
-    _playerState = PlayerState.paused;
+    videoMetaData = const YoutubeMetaData();
+    playerState = PlayerState.paused;
     _isPlayerReady = false;
     controller = YoutubePlayerController(
       initialVideoId: widget.results?.key ?? '',
@@ -53,7 +53,6 @@ class _MovieVideoState extends State<MovieVideo> {
   @override
   void dispose() {
     controller.dispose();
-
     super.dispose();
   }
 

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/core/init/theme/color/color_theme.dart';
-import 'package:movie_app/cubit/movieActor/movie_actors_cubit.dart';
 import 'package:kartal/kartal.dart';
+import 'package:movie_app/cubit/MovieInfo_cubit/movie_informations_cubit.dart';
+import 'package:movie_app/model/actorData_model.dart';
 import 'package:movie_app/view/movieDetailPage/actorCard.dart';
 import 'package:movie_app/widgets/coverImage.dart';
 import 'package:movie_app/widgets/customTabs.dart';
@@ -18,8 +19,8 @@ class DetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    BlocProvider.of<MovieActorsCubit>(context)
-        .getmovieActors((result?.id).toString());
+    BlocProvider.of<MovieInformationsCubit>(context)
+        .getMovieInfo((result?.id).toString());
     String imageUrl = '${ApiConstants.photoBaseUrl}/${result?.posterPath}';
     return Scaffold(
       appBar: AppBar(
@@ -31,19 +32,36 @@ class DetailScreen extends StatelessWidget {
               icon: const Icon(Icons.arrow_back))
         ],
       ),
-      body: SafeArea(
-          child: SingleChildScrollView(
-              child: Column(
-        children: [
-          CoverImage(
-            result: result,
-            url: imageUrl,
-          ),
-          _movieDetail(context),
-          _movieActors(context),
-          CustomTab(movieId: (result?.id).toString(),)
-        ],
-      ))),
+      body: BlocBuilder<MovieInformationsCubit, MovieInformationsState>(
+          builder: (context, state) {
+        if (state is MovieInformationsLoading) {
+          return Center(child: CircularProgressIndicator());
+        } else if (state is MovieInformationsFailure) {
+          return const Text('state error');
+        } else if (state is MovieInformationsLoaded) {
+          return SafeArea(
+            child: SingleChildScrollView(
+                child: Column(
+              children: [
+                CoverImage(
+                  result: result,
+                  url: imageUrl,
+                ),
+                _movieDetail(context),
+                _movieActors(context, state.data[0]),
+                CustomTab(
+                  movieVideos: state.data[1],
+                  similarMovies: state.data[2],
+                )
+              ],
+            )),
+          );
+        } else {
+          return const Center(
+            child: Text('initial'),
+          );
+        }
+      }),
     );
   }
 
@@ -103,30 +121,17 @@ class DetailScreen extends StatelessWidget {
     );
   }
 
-  _movieActors(BuildContext context) {
-    return BlocBuilder<MovieActorsCubit, MovieActorsState>(
-        builder: (context, state) {
-      if (state is MovieActorsLoading) {
-        return const CircularProgressIndicator();
-      } else if (state is MovieActorsFailure) {
-        return const Text('state error');
-      } else if (state is MovieActorsLoaded) {
-        return Container(
-            padding: context.paddingNormal.copyWith(bottom: 0),
-            height: MediaQuery.of(context).size.height * 0.15,
-            child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: state.actorData?.cast?.length,
-                itemBuilder: (context, index) {
-                  return ActorCard(
-                    castData: state.actorData?.cast?[index],
-                  );
-                }));
-      } else {
-        return const Center(
-          child: Text('initial'),
-        );
-      }
-    });
+  _movieActors(BuildContext context, ActorData data) {
+    return Container(
+        padding: context.paddingNormal.copyWith(bottom: 0),
+        height: MediaQuery.of(context).size.height * 0.15,
+        child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: data.cast?.length,
+            itemBuilder: (context, index) {
+              return ActorCard(
+                castData: data.cast?[index],
+              );
+            }));
   }
 }
