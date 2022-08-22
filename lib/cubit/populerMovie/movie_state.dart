@@ -7,7 +7,7 @@ class MovieInitial extends MoiveState {}
 class MovieLoading extends MoiveState {}
 
 class MovieLoaded extends MoiveState {
-  populerMovie movieData;
+  List? movieData;
   MovieLoaded(
     this.movieData,
   );

@@ -10,6 +10,10 @@ class ApiConstants {
   static String? sessionId;
   static String populerMovieUrl =
       'https://api.themoviedb.org/3/movie/popular?api_key=$apiKey&language=en-US&page=1';
+  static String topRatedMovie =
+      'https://api.themoviedb.org/3/movie/top_rated?api_key=$apiKey&language=en-US&page=1';
+  static String upComingMovie =
+      'https://api.themoviedb.org/3/movie/upcoming?api_key=$apiKey&language=en-US&page=1';
   static var photoBaseUrl = "https://image.tmdb.org/t/p/w500";
   String movieCasts(String movieId) {
     String path =

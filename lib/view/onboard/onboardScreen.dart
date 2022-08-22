@@ -35,7 +35,7 @@ class OnboardScreen extends StatelessWidget {
             context.emptySizedHeightBoxNormal,
             CustomElevatedButton(
               onPressedFunc: () {
-                context.navigateToReset('/login');
+                Navigator.pushReplacementNamed(context, "/home");
               },
               buttonText: 'Get Started',
             ),

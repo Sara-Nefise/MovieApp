@@ -21,22 +21,18 @@ class movieCard extends StatelessWidget {
           );
         },
         child: movieModel?.posterPath != null
-            ? Stack(children: [
-                Container(
-                  //margin: const EdgeInsets.only(left: 10),
-                  width: MediaQuery.of(context).size.width * 0.42,
-                  decoration: BoxDecoration(
-                      borderRadius: context.normalBorderRadius,
-                      image: DecorationImage(
-                          filterQuality: FilterQuality.low,
-                          fit: BoxFit.cover,
-                          image: NetworkImage(Url))),
-                ),
-                _rateContainer(context)
-              ])
+            ? Container(
+                width: MediaQuery.of(context).size.width * 0.4,
+                decoration: BoxDecoration(
+                    borderRadius: context.normalBorderRadius,
+                    image: DecorationImage(
+                        filterQuality: FilterQuality.low,
+                        fit: BoxFit.cover,
+                        image: NetworkImage(Url))),
+                child: Stack(children: [_rateContainer(context)]),
+              )
             : Container(
-
-                width: MediaQuery.of(context).size.width * 0.45,
+                width: MediaQuery.of(context).size.width * 0.4,
                 decoration: BoxDecoration(
                   color: AppColors().grey,
                   borderRadius: context.normalBorderRadius,
@@ -53,11 +49,11 @@ class movieCard extends StatelessWidget {
           padding: const EdgeInsets.all(4),
           decoration: BoxDecoration(
               borderRadius: context.lowBorderRadius, color: AppColors().red),
-          width: context.dynamicWidth(0.09),
-          height: context.dynamicHeight(0.03),
+          width: context.dynamicWidth(0.1),
+          height: context.dynamicHeight(0.032),
           child: Text(
-            '${movieModel?.voteAverage}',
-            style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+            '${movieModel?.voteAverage.toStringAsFixed(1)}',
+            style: context.textTheme.bodyText1,
             textAlign: TextAlign.center,
           ),
         ));

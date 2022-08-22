@@ -7,9 +7,9 @@ import 'package:movie_app/cubit/cubit/actor_info_cubit.dart';
 
 import 'package:movie_app/cubit/populerMovie/movie_cubit.dart';
 import 'package:movie_app/service/movieService.dart';
+import 'package:movie_app/view/home/homeScreen.dart';
 import 'package:movie_app/view/home/populerMovieList/populerMovie_list.dart';
 import 'package:movie_app/view/onboard/onboardScreen.dart';
-import 'package:movie_app/view/signIn/signInScreen.dart';
 import 'package:movie_app/view/splash/splashScreen.dart';
 
 void main() {
@@ -35,8 +35,7 @@ class MyApp extends StatelessWidget {
         routes: {
           '/': (context) => const SplashScreen(),
           '/onboard': (context) => const OnboardScreen(),
-          '/login': (context) => const SignInScreen(),
-          '/home': (context) => const PopulerMovie(),
+           '/home': (context) => const HomeScreen(),
           //'/detail':(context) => DetailScreen()
         },
       ),

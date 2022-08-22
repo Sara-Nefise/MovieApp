@@ -19,6 +19,7 @@ dependencies:
   widgetbook: ^2.4.1
   widgetbook_annotation: ^2.1.0
   youtube_player_flutter: ^8.1.0
+  dart_code_metrics: ^4.17.1
 
 dev_dependencies:
   flutter_lints: ^2.0.0

@@ -7,24 +7,35 @@ import 'package:movie_app/model/actorData_model.dart';
 import 'package:movie_app/model/actorPersonalInfo_model.dart';
 import 'package:movie_app/model/actorsMovie_model.dart';
 import 'package:movie_app/model/movieVideos_model.dart';
-import 'package:movie_app/model/populerMovie_model.dart';
 import 'package:http/http.dart' as http;
+import 'package:movie_app/model/populerMovie_model.dart';
 import 'package:movie_app/model/similarMovies.dart';
 
 class MovieService {
-  Future<populerMovie?> getPopulerMovies() async {
+  Future<List> getMovieLists() async {
     try {
-      var uri = Uri.parse(ApiConstants.populerMovieUrl);
-      final response = await http.get(uri);
-      print('${response.statusCode}');
-      if (response.statusCode == 200) {
-        populerMovie? model = populerMovie.fromJson(jsonDecode(response.body));
-        return model;
+      final results = await Future.wait([
+        http.get(Uri.parse(ApiConstants.populerMovieUrl)),
+        http.get(Uri.parse(ApiConstants.upComingMovie)),
+        http.get(Uri.parse(ApiConstants.topRatedMovie)),
+      ]);
+      List<Movie?> populerMovie = [];
+
+      if (results[0].statusCode == 200) {
+        populerMovie.add(Movie.fromJson(jsonDecode(results[0].body)));
+        if (results[1].statusCode == 200) {
+          populerMovie.add(Movie.fromJson(jsonDecode(results[1].body)));
+          if (results[2].statusCode == 200) {
+            populerMovie
+                .add(Movie.fromJson(jsonDecode(results[2].body)));
+            return populerMovie;
+          }
+        }
       }
     } catch (e) {
       log(e.toString());
     }
-    return null;
+    return [];
   }
 
   Future<List> getMovieInfo(String movieId) async {
@@ -52,13 +63,12 @@ class MovieService {
     ]);
     ActorPersonalInfo? actorInfo =
         ActorPersonalInfo.fromJson(jsonDecode(results[0].body));
-    ActorMovies? actorMovies = ActorMovies.fromJson(jsonDecode(results[1].body));
+    ActorMovies? actorMovies =
+        ActorMovies.fromJson(jsonDecode(results[1].body));
     // if (results.statusCode == 200) {
 
     //   return model;
     // }
     return [actorInfo, actorMovies];
   }
-
-
 }

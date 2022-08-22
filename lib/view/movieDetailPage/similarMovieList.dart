@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/model/similarMovies.dart';
-
+import 'package:kartal/kartal.dart';
 import 'package:movie_app/widgets/movieCard.dart';
 
 class SimilarMovieList extends StatelessWidget {
@@ -15,18 +15,20 @@ class SimilarMovieList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 15),
+      padding: context.paddingNormal,
       child: GridView.builder(
         itemCount: similarMovies?.results?.length,
         itemBuilder: (BuildContext context, int index) {
-          return Center(
-            child: movieCard(
-              movieModel: similarMovies?.results?[index],
-            ),
+          return movieCard(
+            movieModel: similarMovies?.results?[index],
           );
         },
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2, mainAxisSpacing: 20),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            mainAxisSpacing: 15,
+            crossAxisSpacing: 20,
+            childAspectRatio: MediaQuery.of(context).size.width /
+                (MediaQuery.of(context).size.height / 1.5)),
       ),
     );
   }

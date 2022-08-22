@@ -47,7 +47,7 @@ class _CustomTabState extends State<CustomTab> with TickerProviderStateMixin {
           indicatorSize: TabBarIndicatorSize.tab,
         ),
         SizedBox(
-          height: context.dynamicHeight(1),
+          height: context.dynamicHeight(0.5),
           child: TabBarView(
             controller: _tabController,
             children: [

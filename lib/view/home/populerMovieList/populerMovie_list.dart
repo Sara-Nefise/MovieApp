@@ -1,42 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app/cubit/populerMovie/movie_cubit.dart';
+import 'package:kartal/kartal.dart';
+import 'package:movie_app/model/populerMovie_model.dart';
+
 import 'package:movie_app/widgets/movieCard.dart';
 
-class PopulerMovie extends StatelessWidget {
-  const PopulerMovie({Key? key}) : super(key: key);
+class PopulerMovieList extends StatelessWidget {
+  List<Results>? movie;
+
+   PopulerMovieList({
+    Key? key,
+    required this.movie,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    BlocProvider.of<MovieCubit>(context).getPopulerMovies();
-    return Scaffold(
-      body: BlocBuilder<MovieCubit, MoiveState>(builder: (context, state) {
-        if (state is MovieLoading) {
-          return const CircularProgressIndicator();
-        } else if (state is MovieFailure) {
-          return const Text('state error');
-        } else if (state is MovieLoaded) {
-          return Container(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 5.0, vertical: 24.0),
-              height: MediaQuery.of(context).size.height * 0.35,
-              child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: state.movieData.results?.length,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      margin: EdgeInsets.only(left: 15),
-                      child: movieCard(
-                        movieModel: state.movieData.results?[index],
-                      ),
-                    );
-                  }));
-        } else {
-          return const Center(
-            child: Text('initial'),
-          );
-        }
-      }),
-    );
+    return Container(
+        padding: const EdgeInsets.symmetric(vertical: 18),
+        height: MediaQuery.of(context).size.height * 0.32,
+        child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: 10,
+            itemBuilder: (context, index) {
+              return Container(
+                margin: EdgeInsets.only(left: index == 0 ? 0 : 15),
+                child: movieCard(
+                  movieModel: movie?[index],
+                ),
+              );
+            }));
   }
 }
