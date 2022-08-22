@@ -1,16 +1,10 @@
-# movie_app
+# Movie App
 
-A new Flutter project.
+This app presents the most popular movies, movies that will be shown soon, and the highest rated. You can view movie information such as synopsis, cast, year of publication, and rating, and you can watch videos about the movie and view movies like it. On the actor's page, you can also view the actor's information, such as his biography and the films in which he played.
 
-## Getting Started
+#Tech and Libraries
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- MVC Architecture
+- State Management with BloC
+- Network with HTTP
+- Restfull API 
