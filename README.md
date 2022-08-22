@@ -9,6 +9,10 @@ This app presents the most popular movies, movies that will be shown soon, and t
 - Network with [HTTP](https://pub.dev/packages/http)
 - Restfull API 
 
+# API Resource
+
+[The Movie Database API](https://developers.themoviedb.org/3/getting-started/introduction)
+
 
 | Splash Screen         | Onboard Screen           | Home Screen  |
 | ------------- |:-------------:| -----:|
