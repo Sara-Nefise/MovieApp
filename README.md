@@ -10,8 +10,8 @@ This app presents the most popular movies, movies that will be shown soon, and t
 - Restfull API 
 
 
-| Splash Screen         | Onboard Screen           | Cool  |
+| Splash Screen         | Onboard Screen           | Home Screen  |
 | ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
+| ![image](https://user-images.githubusercontent.com/47283850/185988762-c799b687-9e3c-4fb3-92f7-a9bbc55b61bc.png)     | right-aligned | $1600 |
 | col 2 is      | centered      |   $12 |
 | zebra stripes | are neat      |    $1 |
