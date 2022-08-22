@@ -9,3 +9,11 @@ This app presents the most popular movies, movies that will be shown soon, and t
 - Network with [HTTP](https://pub.dev/packages/http)
 - Restfull API 
 
+<dl>
+  <dt>Definition list</dt>
+  <dd>Is something people use sometimes.</dd>
+
+  <dt>Markdown in HTML</dt>
+  <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
+</dl>
+
