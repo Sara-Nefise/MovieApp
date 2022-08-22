@@ -12,6 +12,6 @@ This app presents the most popular movies, movies that will be shown soon, and t
 
 | Splash Screen         | Onboard Screen           | Home Screen  |
 | ------------- |:-------------:| -----:|
-| ![image](https://user-images.githubusercontent.com/47283850/185988762-c799b687-9e3c-4fb3-92f7-a9bbc55b61bc.png)     | right-aligned | $1600 |
+| <img src="https://user-images.githubusercontent.com/47283850/161951778-21dd1857-5617-4346-b0d1-b1467f1645c3.png" width="300" height="500">     | right-aligned | $1600 |
 | col 2 is      | centered      |   $12 |
 | zebra stripes | are neat      |    $1 |
