@@ -9,9 +9,9 @@ This app presents the most popular movies, movies that will be shown soon, and t
 - Network with [HTTP](https://pub.dev/packages/http)
 - Restfull API 
 
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+| Splash Screen        | Onboard Screen |
+| -------------------- |:----------- --:|
+| col 3 is             | right-aligned  |
+| col 2 is             | centered       |
+| zebra stripes        | are neat       |
 
