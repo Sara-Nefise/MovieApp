@@ -14,12 +14,12 @@ This app presents the most popular movies, movies that will be shown soon, and t
 [The Movie Database API](https://developers.themoviedb.org/3/getting-started/introduction)
 
 
-| Splash Screen         | Onboard Screen           | Home Screen  |
-| :-------------: |:-------------:| :-------------:|
-| <img src="https://user-images.githubusercontent.com/47283850/161951778-21dd1857-5617-4346-b0d1-b1467f1645c3.png" width="300" height="600">     | <img src="https://user-images.githubusercontent.com/47283850/186130655-b31b221a-b755-4333-a0c4-2f69c7fe2f25.png" width="300" height="600"> | <img src="https://user-images.githubusercontent.com/47283850/186130897-46cd2d05-1092-4a28-843a-f4ae635ac511.png" width="300" height="600"> |
+| Onboard Screen| Home Screen  |
+|:-------------:| :-------------:|
+| <img src="https://user-images.githubusercontent.com/47283850/186130655-b31b221a-b755-4333-a0c4-2f69c7fe2f25.png" width="300" height="600"> | <img src="https://user-images.githubusercontent.com/47283850/186130897-46cd2d05-1092-4a28-843a-f4ae635ac511.png" width="300" height="600"> |
 
 
-| See All Screen         | Movie Detail Screen           | Movie Videos Tab  |
+| See All Screen  | Movie Detail Screen           | Movie Videos Tab  |
 | :-------------: |:-------------:| :-------------:|
 | <img src="https://user-images.githubusercontent.com/47283850/186131836-b2d4ad14-71a0-4de4-8ac0-14a57111d3cf.png" width="300" height="600">     | <img src="https://user-images.githubusercontent.com/47283850/186131914-a5e28375-cd58-4e98-b62c-dd922ed87755.png" width="300" height="600"> | <img src="https://user-images.githubusercontent.com/47283850/186132101-18928dab-2e83-41a2-9f86-7a3048957c83.png" width="300" height="600"> |
 
