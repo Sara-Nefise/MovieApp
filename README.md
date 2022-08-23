@@ -14,7 +14,7 @@ This app presents the most popular movies, movies that will be shown soon, and t
 [The Movie Database API](https://developers.themoviedb.org/3/getting-started/introduction)
 
 
-| Onboard Screen| Home Screen  || See All Screen  |
+| Onboard Screen| Home Screen  | See All Screen  |
 |:-------------:| :-------------:| :-------------: |
 | <img src="https://user-images.githubusercontent.com/47283850/186130655-b31b221a-b755-4333-a0c4-2f69c7fe2f25.png" width="300" height="600"> | <img src="https://user-images.githubusercontent.com/47283850/186130897-46cd2d05-1092-4a28-843a-f4ae635ac511.png" width="300" height="600"> |  <img src="https://user-images.githubusercontent.com/47283850/186131836-b2d4ad14-71a0-4de4-8ac0-14a57111d3cf.png" width="300" height="600">     |
 
