@@ -7,7 +7,7 @@ This app presents the most popular movies, movies that will be shown soon, and t
 - MVC Architecture
 - State Management with [BloC](https://pub.dev/packages/flutter_bloc)
 - Network with [HTTP](https://pub.dev/packages/http)
-- Restfull API 
+- Restful API 
 
 # API Resource
 
