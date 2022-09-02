@@ -1,4 +1,4 @@
-import 'package:movie_app/model/similarMovies.dart';
+import 'package:movie_app/feature/movieDetailPage/model/similarMovies.dart';
 
 class ApiConstants {
   static String requestTokenUrl =

@@ -3,14 +3,12 @@ import 'package:movie_app/core/init/theme/color/app_theme_color.dart';
 import 'package:movie_app/core/init/theme/color/color_theme.dart';
 import 'package:movie_app/core/init/theme/text/light_text_theme.dart';
 import 'package:movie_app/core/init/theme/text/text_theme.dart';
-import 'package:widgetbook_annotation/widgetbook_annotation.dart';
 
 abstract class ITheme {
   ITextTheme get textTheme;
   IColors get colors;
 }
 
-@WidgetbookTheme(name: 'Dark', isDefault: true)
 ThemeData createThemeData() => ThemeData();
 
 ThemeData createTheme(ITheme theme) => ThemeData(
@@ -21,16 +19,15 @@ ThemeData createTheme(ITheme theme) => ThemeData(
       cardColor: theme.colors.colorScheme?.onSecondary,
       bottomAppBarColor: theme.colors.scaffoldBackgroundColor,
       tabBarTheme: TabBarTheme(
-         
         indicator: UnderlineTabIndicator(
-              borderSide: BorderSide(color: AppColors().red)),
+            borderSide: BorderSide(color: AppColors().red)),
         labelColor: theme.colors.tabbarSelectedColor,
         unselectedLabelColor: theme.colors.tabbarNormalColor,
       ),
       appBarTheme: AppBarTheme(
           backgroundColor: theme.colors.appBarColor,
           elevation: 0.0,
-          iconTheme: const IconThemeData(color: Colors.black, size: 25)),
+          iconTheme: const IconThemeData(color: Colors.white, size: 25)),
       colorScheme: theme.colors.colorScheme,
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: TextButton.styleFrom(
@@ -58,6 +55,7 @@ ThemeData createTheme(ITheme theme) => ThemeData(
         fillColor: AppColors().lightBlack,
         filled: true,
       ),
+      iconTheme: IconThemeData(color: AppColors().red)
     );
 
 // class AppThemeDark extends ITheme {

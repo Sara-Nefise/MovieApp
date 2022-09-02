@@ -2,15 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/core/init/theme/app_theme.dart';
-import 'package:movie_app/cubit/MovieInfo_cubit/movie_informations_cubit.dart';
-import 'package:movie_app/cubit/cubit/actor_info_cubit.dart';
+import 'package:movie_app/core/service/movieService.dart';
+import 'package:movie_app/feature/home/view/homeScreen.dart';
+import 'package:movie_app/feature/onboard/onboardScreen.dart';
+import 'package:movie_app/feature/splash/splashScreen.dart';
 
-import 'package:movie_app/cubit/populerMovie/movie_cubit.dart';
-import 'package:movie_app/service/movieService.dart';
-import 'package:movie_app/view/home/homeScreen.dart';
-import 'package:movie_app/view/home/populerMovieList/populerMovie_list.dart';
-import 'package:movie_app/view/onboard/onboardScreen.dart';
-import 'package:movie_app/view/splash/splashScreen.dart';
+import 'core/cubit/ActorInfo/actor_info_cubit.dart';
+import 'core/cubit/MovieInfo_cubit/movie_informations_cubit.dart';
+import 'core/cubit/populerMovie/movie_cubit.dart';
 
 void main() {
   runApp(MyApp());
@@ -34,9 +33,8 @@ class MyApp extends StatelessWidget {
         initialRoute: '/',
         routes: {
           '/': (context) => const SplashScreen(),
-          '/onboard': (context) => const OnboardScreen(),
-           '/home': (context) => const HomeScreen(),
-          //'/detail':(context) => DetailScreen()
+          '/onboard': (context) => OnboardScreen(),
+          '/home': (context) => HomeScreen(),
         },
       ),
     );
