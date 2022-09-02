@@ -6,27 +6,26 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.17.6 <3.0.0"
+  sdk: ">=2.18.0 <3.0.0"
 
 dependencies:
   cupertino_icons: ^1.0.2
-  dio: ^4.0.6
+  dart_code_metrics: ^4.17.1
   flutter:
     sdk: flutter
   flutter_bloc: ^8.0.1
   google_fonts: ^3.0.1
   kartal: ^2.4.0
-  widgetbook: ^2.4.1
-  widgetbook_annotation: ^2.1.0
+  skeletons: ^0.0.3
   youtube_player_flutter: ^8.1.0
-  dart_code_metrics: ^4.17.1
+  cached_network_image: ^3.2.2
 
 dev_dependencies:
-  flutter_lints: ^2.0.0
   build_runner: ^2.2.0
-  widgetbook_generator: ^2.4.1
+  flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
+  widgetbook_generator: ^2.4.1
 
 flutter:
 

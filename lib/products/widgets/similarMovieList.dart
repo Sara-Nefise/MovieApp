@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/feature/movieDetailPage/model/similarMovies.dart';
 import 'package:kartal/kartal.dart';
 import 'package:movie_app/products/widgets/movieCard.dart';

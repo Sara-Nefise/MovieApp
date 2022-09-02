@@ -1,14 +1,13 @@
 import 'dart:convert';
 import 'dart:developer';
 
-import 'package:dio/dio.dart';
+import 'package:http/http.dart' as http;
 import 'package:movie_app/core/constant/apiConstants.dart';
 import 'package:movie_app/feature/actorDetailPage/model/actorData_model.dart';
 import 'package:movie_app/feature/actorDetailPage/model/actorPersonalInfo_model.dart';
+import 'package:movie_app/feature/home/model/movie_model.dart';
 import 'package:movie_app/feature/movieDetailPage/model/actorsMovie_model.dart';
 import 'package:movie_app/feature/movieDetailPage/model/movieVideos_model.dart';
-import 'package:http/http.dart' as http;
-import 'package:movie_app/feature/home/model/movie_model.dart';
 import 'package:movie_app/feature/movieDetailPage/model/similarMovies.dart';
 
 class MovieService {

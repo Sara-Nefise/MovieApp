@@ -1,9 +1,10 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import 'package:movie_app/core/init/theme/color/color_theme.dart';
 import 'package:movie_app/feature/actorDetailPage/view/actorDetailScreen.dart';
-import 'package:movie_app/feature/actorDetailPage/model/actorData_model.dart';
+
+import '../actorDetailPage/model/actorData_model.dart';
+
 
 class ActorCard extends StatelessWidget {
   Cast? castData;
@@ -30,26 +31,10 @@ class ActorCard extends StatelessWidget {
           },
           child: Row(
             children: [
-           
-              CachedNetworkImage(
-                imageUrl: Url,
-                imageBuilder: (context, imageProvider) => CircleAvatar(
-                  radius: 35,
-                  backgroundImage: imageProvider,
-                ),
-                placeholder: (context, url) => Container(
-                  height: 70,
-                  width: 70,
-                  decoration: BoxDecoration(
-                      borderRadius: context.highBorderRadius,
-                      image: DecorationImage(
-                        image: AssetImage('assets/gifs/skeleton.gif'),
-                        fit: BoxFit.fill,
-                      )),
-                ),
-                errorWidget: (context, url, error) => const Icon(Icons.error),
+              CircleAvatar(
+                backgroundImage: NetworkImage(Url),
+                radius: 35,
               ),
-
               SizedBox(
                 width: context.dynamicWidth(0.03),
               ),

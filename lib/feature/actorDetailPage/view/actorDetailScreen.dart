@@ -61,7 +61,7 @@ class ActorDetailScreen extends StatelessWidget {
                                 SizedBox(
                                   child: Row(
                                     children: [
-                                      Icon(Icons.star, color: AppColors().red),
+                                      const Icon(Icons.star),
                                       context.emptySizedWidthBoxLow,
                                       Text(
                                         '${actorData?.popularity}',
