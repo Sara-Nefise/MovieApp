@@ -1,16 +1,31 @@
-# movie_app
+# Movie App
 
-A new Flutter project.
+This app presents the most popular movies, movies that will be shown soon, and the highest rated. You can view movie information such as synopsis, cast, year of publication, and rating, and you can watch videos about the movie and view movies like it. On the actor's page, you can also view the actor's information, such as his biography and the films in which he played.
 
-## Getting Started
+# Tech and Libraries
 
-This project is a starting point for a Flutter application.
+- MVC Architecture
+- State Management with [BloC](https://pub.dev/packages/flutter_bloc)
+- Network with [HTTP](https://pub.dev/packages/http)
+- Restful API 
 
-A few resources to get you started if this is your first Flutter project:
+# API Resource
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+[The Movie Database API](https://developers.themoviedb.org/3/getting-started/introduction)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+| Onboard Screen| Home Screen  | See All Screen  |
+|:-------------:| :-------------:| :-------------: |
+| <img src="https://user-images.githubusercontent.com/47283850/186130655-b31b221a-b755-4333-a0c4-2f69c7fe2f25.png" width="300" height="600"> | <img src="https://user-images.githubusercontent.com/47283850/186130897-46cd2d05-1092-4a28-843a-f4ae635ac511.png" width="300" height="600"> |  <img src="https://user-images.githubusercontent.com/47283850/186131836-b2d4ad14-71a0-4de4-8ac0-14a57111d3cf.png" width="300" height="600">     |
+
+
+| Movie Detail Screen| Movie Videos Tab  | Similer Movies Tab|
+| :-------------: |:-------------:|:-------------: |
+| <img src="https://user-images.githubusercontent.com/47283850/186131914-a5e28375-cd58-4e98-b62c-dd922ed87755.png" width="300" height="600"> | <img src="https://user-images.githubusercontent.com/47283850/186132101-18928dab-2e83-41a2-9f86-7a3048957c83.png" width="300" height="600"> | <img src="https://user-images.githubusercontent.com/47283850/186132337-1e36581a-dfdf-440f-b609-dea956eb6b84.png" width="300" height="600"> |
+
+| Actor Detail Screen|
+|:-------------:|
+| <img src="https://user-images.githubusercontent.com/47283850/186132452-2c26d0a6-05b1-4f8e-b367-6d734bb43a27.png" width="300" height="600"> |
+
+
+
