@@ -5,8 +5,10 @@ class AppStrings {
   final String getStartText = 'Get Started';
   final String populerListText = 'Popular Film List';
   final String upCommingListText = 'Up Comming Film List';
-  final String topRatedListText  ='Top Rated Film List';
+  final String topRatedListText = 'Top Rated Film List';
   final String biographyText = 'Actor biography';
-  final String movieText ='Movies';
-  final String seeAllText='See all';
+  final String movieText = 'Movies';
+  final String seeAllText = 'See all';
+  final String noConnection =
+      'Internet connection lost!\nCheck your connection and try again';
 }

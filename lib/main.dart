@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app/core/cubit/cubit/network_cubit.dart';
 import 'package:movie_app/core/init/theme/app_theme.dart';
 import 'package:movie_app/core/service/movieService.dart';
 import 'package:movie_app/feature/home/view/homeScreen.dart';
@@ -25,7 +26,8 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (_) => MovieCubit(movieservice)),
         BlocProvider(create: (_) => MovieInformationsCubit(movieservice)),
-        BlocProvider(create: (_) => ActorInfoCubit(movieservice))
+        BlocProvider(create: (_) => ActorInfoCubit(movieservice)),
+        BlocProvider(create: (_) => NetworkCubit())
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
