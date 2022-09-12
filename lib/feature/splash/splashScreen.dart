@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
+import 'package:movie_app/core/constant/appImages.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -11,6 +12,8 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  AppImage appImages = AppImage();
+
   Timer? timer;
   @override
   void initState() {
@@ -30,17 +33,16 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: SizedBox(
-      height: double.infinity,
-      width: double.infinity,
+      width: MediaQuery.of(context).size.width,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset('assets/images/11.PNG'),
+          Image.asset(appImages.mIconImage),
           context.emptySizedHeightBoxHigh,
           SizedBox(
             height: context.dynamicHeight(0.1),
             width: context.dynamicWidth(0.5),
-            child: Image.asset('assets/gifs/loading.gif'),
+            child: Image.asset(appImages.loadingGif),
           )
         ],
       ),

@@ -30,7 +30,6 @@ class ActorCard extends StatelessWidget {
           },
           child: Row(
             children: [
-           
               CachedNetworkImage(
                 imageUrl: Url,
                 imageBuilder: (context, imageProvider) => CircleAvatar(
@@ -49,7 +48,6 @@ class ActorCard extends StatelessWidget {
                 ),
                 errorWidget: (context, url, error) => const Icon(Icons.error),
               ),
-
               SizedBox(
                 width: context.dynamicWidth(0.03),
               ),

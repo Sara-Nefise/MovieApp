@@ -1,20 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
+
 import 'package:movie_app/products/widgets/movieCard.dart';
 
 class SeeAllPage extends StatelessWidget {
   int? movieCount;
   var movieData;
+  String appTitle;
   SeeAllPage({
     Key? key,
     required this.movieCount,
     required this.movieData,
+    required this.appTitle,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(
+          title: Text(
+            appTitle,
+            style: context.textTheme.headline5,
+          ),
+          centerTitle: true,
+        ),
         body: GridView.builder(
             padding: context.paddingNormal,
             itemCount: movieCount,

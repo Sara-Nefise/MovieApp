@@ -19,7 +19,6 @@ dependencies:
   google_fonts: ^3.0.1
   kartal: ^2.4.0
   lottie: ^1.4.2
-  skeletons: ^0.0.3
   youtube_player_flutter: ^8.1.0
 
 dev_dependencies:

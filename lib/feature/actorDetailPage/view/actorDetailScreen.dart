@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
+import 'package:lottie/lottie.dart';
+import 'package:movie_app/core/constant/appImages.dart';
 
 import 'package:movie_app/core/constant/appStrings.dart';
 import 'package:movie_app/core/init/theme/color/color_theme.dart';
 import 'package:movie_app/feature/actorDetailPage/model/actorData_model.dart';
 import 'package:movie_app/feature/actorDetailPage/model/actorPersonalInfo_model.dart';
 import 'package:movie_app/feature/actorDetailPage/view/actorMovies.dart';
+import 'package:movie_app/feature/movieDetailPage/view/detailScreen.dart';
 import 'package:movie_app/products/widgets/coverImage.dart';
 import 'package:movie_app/products/widgets/featureContainer.dart';
-
 
 import '../../../core/cubit/ActorInfo/actor_info_cubit.dart';
 
@@ -21,6 +23,7 @@ class ActorDetailScreen extends StatelessWidget {
   }) : super(key: key);
 
   AppStrings appStrings = AppStrings();
+  AppImage appImages = AppImage();
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +36,8 @@ class ActorDetailScreen extends StatelessWidget {
           child: BlocBuilder<ActorInfoCubit, ActorInfoState>(
               builder: (context, state) {
             if (state is ActorInfoFailure) {
-              return const Text('state error');
+              return lostConnetion(
+                  appImages: appImages, appStrings: appStrings);
             } else if (state is ActorInfoLoaded) {
               ActorPersonalInfo? actorData = state.data[0];
               return SingleChildScrollView(

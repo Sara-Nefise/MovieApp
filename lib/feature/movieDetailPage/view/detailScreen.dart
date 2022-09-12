@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lottie/lottie.dart';
+import 'package:movie_app/core/constant/appImages.dart';
+import 'package:movie_app/core/constant/appStrings.dart';
 import 'package:movie_app/core/init/theme/color/color_theme.dart';
 import 'package:kartal/kartal.dart';
 import 'package:movie_app/products/widgets/actorCard.dart';
@@ -22,13 +25,16 @@ class DetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     BlocProvider.of<MovieInformationsCubit>(context)
         .getMovieInfo((result?.id).toString());
+    AppImage appImages = AppImage();
+    AppStrings appStrings = AppStrings();
+
     String imageUrl = '${ApiConstants.photoBaseUrl}/${result?.posterPath}';
     return Scaffold(
       appBar: AppBar(),
       body: BlocBuilder<MovieInformationsCubit, MovieInformationsState>(
           builder: (context, state) {
         if (state is MovieInformationsFailure) {
-          return const Text('state error');
+          return lostConnetion(appImages: appImages, appStrings: appStrings);
         } else if (state is MovieInformationsLoaded) {
           return SafeArea(
             child: SingleChildScrollView(
@@ -122,5 +128,37 @@ class DetailScreen extends StatelessWidget {
                 castData: data.cast?[index],
               );
             }));
+  }
+}
+
+class lostConnetion extends StatelessWidget {
+  const lostConnetion({
+    Key? key,
+    required this.appImages,
+    required this.appStrings,
+  }) : super(key: key);
+
+  final AppImage appImages;
+  final AppStrings appStrings;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: context.paddingNormal,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Lottie.asset(appImages.noConnectionImage,
+              width: MediaQuery.of(context).size.width,
+              height: context.dynamicHeight(0.33)),
+          Text(
+            appStrings.noConnection,
+            textAlign: TextAlign.center,
+            style: context.textTheme.headline6?.copyWith(
+                color: AppColors().grey, fontWeight: FontWeight.w500),
+          )
+        ],
+      ),
+    );
   }
 }

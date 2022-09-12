@@ -5,7 +5,7 @@ class ApiConstants {
       'https://api.themoviedb.org/3/authentication/token/new?api_key=$apiKey';
   static String newSessionUrl =
       'https://api.themoviedb.org/3/authentication/session/new?api_key=$apiKey';
-  static String apiKey = 'ee7fc18c7de75ec9f16cc319e57300a1';
+  static String apiKey = ''; //todo enter your apikey
   static String? requestKey;
   static String? sessionId;
   static String populerMovieUrl =
