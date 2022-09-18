@@ -47,10 +47,6 @@ class MovieService {
     MovieVideos? videos = MovieVideos.fromJson(jsonDecode(results[1].body));
     SimilarMovies? similarMovies =
         SimilarMovies.fromJson(jsonDecode(results[2].body));
-    // if (response.statusCode == 200) {
-
-    //   return model;
-    // }
 
     return [actors, videos, similarMovies];
   }
@@ -64,10 +60,6 @@ class MovieService {
         ActorPersonalInfo.fromJson(jsonDecode(results[0].body));
     ActorMovies? actorMovies =
         ActorMovies.fromJson(jsonDecode(results[1].body));
-    // if (results.statusCode == 200) {
-
-    //   return model;
-    // }
     return [actorInfo, actorMovies];
   }
 }

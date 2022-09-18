@@ -38,6 +38,7 @@ class LightColors implements IColors {
     tabbarNormalColor = AppColors().grey;
     tabbarSelectedColor = colors.red;
     colorScheme = const ColorScheme.light().copyWith(
+      
         onPrimary: colors.white, 
         onSecondary: colors.red,
         onSurface: colors.white,

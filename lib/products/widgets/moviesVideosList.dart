@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/feature/movieDetailPage/model/movieVideos_model.dart';
 
-import 'package:movie_app/feature/movieDetailPage/model/similarMovies.dart';
 import 'package:movie_app/products/widgets/moviesVideos.dart';
 
 class MoviesVideoList extends StatelessWidget {
-  MovieVideos? movieVideos;
-  MoviesVideoList({
+ final MovieVideos? movieVideos;
+ const MoviesVideoList({
     Key? key,
     required this.movieVideos,
   }) : super(key: key);

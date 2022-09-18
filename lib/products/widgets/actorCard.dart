@@ -6,9 +6,9 @@ import 'package:movie_app/feature/actorDetailPage/view/actorDetailScreen.dart';
 import 'package:movie_app/feature/actorDetailPage/model/actorData_model.dart';
 
 class ActorCard extends StatelessWidget {
-  Cast? castData;
+  final Cast? castData;
 
-  ActorCard({
+ const ActorCard({
     Key? key,
     this.castData,
   }) : super(key: key);
@@ -41,7 +41,7 @@ class ActorCard extends StatelessWidget {
                   width: 70,
                   decoration: BoxDecoration(
                       borderRadius: context.highBorderRadius,
-                      image: DecorationImage(
+                      image: const DecorationImage(
                         image: AssetImage('assets/gifs/skeleton.gif'),
                         fit: BoxFit.fill,
                       )),

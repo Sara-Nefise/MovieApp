@@ -34,7 +34,7 @@ class SeeAllPage extends StatelessWidget {
                 childAspectRatio: MediaQuery.of(context).size.width /
                     (MediaQuery.of(context).size.height / 1.6)),
             itemBuilder: (BuildContext context, int index) {
-              return movieCard(
+              return MovieCard(
                 movieModel: movieData[index],
               );
             }));

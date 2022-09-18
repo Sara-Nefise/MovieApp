@@ -95,7 +95,7 @@ class DetailScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              featureContainer(
+              FeatureContainer(
                 text: result?.originalLanguage,
               ),
             ]),

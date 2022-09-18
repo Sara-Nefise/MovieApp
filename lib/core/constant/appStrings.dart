@@ -11,4 +11,7 @@ class AppStrings {
   final String seeAllText = 'See all';
   final String noConnection =
       'Internet connection lost!\nCheck your connection and try again';
+    final String videoText='Videos';  
+
+    final String similarMoviesText='Similar Movies';
 }

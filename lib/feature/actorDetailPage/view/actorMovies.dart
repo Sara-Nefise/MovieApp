@@ -22,7 +22,7 @@ class ActorMoviesScreen extends StatelessWidget {
             itemBuilder: (context, index) {
               return Container(
                   margin: EdgeInsets.only(left: index == 0 ? 0 : 15),
-                  child: movieCard(
+                  child: MovieCard(
                     movieModel: actorMovies?.cast?[index],
                   ));
             }));

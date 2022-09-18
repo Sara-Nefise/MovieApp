@@ -5,8 +5,8 @@ import 'package:movie_app/feature/movieDetailPage/model/movieVideos_model.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class MovieVideo extends StatefulWidget {
-  Results? results;
-  MovieVideo({
+  final Results? results;
+  const MovieVideo({
     Key? key,
     required this.results,
   }) : super(key: key);
@@ -70,9 +70,10 @@ class _MovieVideoState extends State<MovieVideo> {
                   controller.addListener(listener);
                 },
                 controller: controller,
-                progressColors: const ProgressBarColors(
-                  playedColor: Colors.red,
-                  handleColor: Colors.grey,
+                progressColors: ProgressBarColors(
+                  playedColor: Theme.of(context).tabBarTheme.labelColor,
+                  handleColor:
+                      Theme.of(context).tabBarTheme.unselectedLabelColor,
                 ))),
         context.emptySizedWidthBoxNormal,
         Expanded(child: Text(widget.results?.name ?? ''))

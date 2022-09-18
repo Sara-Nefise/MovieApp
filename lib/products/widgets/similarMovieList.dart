@@ -4,9 +4,9 @@ import 'package:kartal/kartal.dart';
 import 'package:movie_app/products/widgets/movieCard.dart';
 
 class SimilarMovieList extends StatelessWidget {
-  SimilarMovies? similarMovies;
+  final SimilarMovies? similarMovies;
 
-  SimilarMovieList({
+  const SimilarMovieList({
     Key? key,
     required this.similarMovies,
   }) : super(key: key);
@@ -18,7 +18,7 @@ class SimilarMovieList extends StatelessWidget {
       child: GridView.builder(
         itemCount: similarMovies?.results?.length,
         itemBuilder: (BuildContext context, int index) {
-          return movieCard(
+          return MovieCard(
             movieModel: similarMovies?.results?[index],
           );
         },

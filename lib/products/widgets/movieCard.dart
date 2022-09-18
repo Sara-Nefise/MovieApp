@@ -3,9 +3,9 @@ import 'package:kartal/kartal.dart';
 import 'package:movie_app/core/init/theme/color/color_theme.dart';
 import 'package:movie_app/feature/movieDetailPage/view/detailScreen.dart';
 
-class movieCard extends StatelessWidget {
-  dynamic movieModel;
-  movieCard({Key? key, required this.movieModel}) : super(key: key);
+class MovieCard extends StatelessWidget {
+  final dynamic movieModel;
+  const MovieCard({Key? key, required this.movieModel}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
