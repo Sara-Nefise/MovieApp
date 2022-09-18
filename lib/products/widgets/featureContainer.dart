@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
-
 import 'package:movie_app/core/init/theme/color/color_theme.dart';
 
-class featureContainer extends StatelessWidget {
-  String? text;
-  featureContainer({
+class FeatureContainer extends StatelessWidget {
+  final String? text;
+  const FeatureContainer({
     Key? key,
     required this.text,
   }) : super(key: key);

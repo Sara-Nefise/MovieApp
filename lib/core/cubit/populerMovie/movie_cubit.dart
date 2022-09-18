@@ -13,7 +13,7 @@ class MovieCubit extends Cubit<MoiveState> {
   Future<void> getMovieLists() async {
     emit(MovieLoading());
     try {
-      List? movieData = await movieservice.getMovieLists();
+      final List movieData = await movieservice.getMovieLists();
       emit(MovieLoaded(movieData));
     } on Exception {
       emit(MovieFailure());

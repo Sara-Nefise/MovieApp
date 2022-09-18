@@ -12,6 +12,7 @@ abstract class ITheme {
 ThemeData createThemeData() => ThemeData();
 
 ThemeData createTheme(ITheme theme) => ThemeData(
+  
       scaffoldBackgroundColor: AppColors().black,
       textSelectionTheme: const TextSelectionThemeData(),
       fontFamily: theme.textTheme.fontFamily,
@@ -19,9 +20,11 @@ ThemeData createTheme(ITheme theme) => ThemeData(
       cardColor: theme.colors.colorScheme?.onSecondary,
       bottomAppBarColor: theme.colors.scaffoldBackgroundColor,
       tabBarTheme: TabBarTheme(
+        
         indicator: UnderlineTabIndicator(
             borderSide: BorderSide(color: AppColors().red)),
         labelColor: theme.colors.tabbarSelectedColor,
+        
         unselectedLabelColor: theme.colors.tabbarNormalColor,
       ),
       appBarTheme: AppBarTheme(

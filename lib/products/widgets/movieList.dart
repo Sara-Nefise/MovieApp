@@ -6,9 +6,9 @@ import 'package:movie_app/products/widgets/movieCard.dart';
 
 
 class MovieList extends StatelessWidget {
-  List<Results>? movie;
+  final List<Results>? movie;
 
-   MovieList({
+   const MovieList({
     Key? key,
     required this.movie,
   }) : super(key: key);
@@ -24,7 +24,7 @@ class MovieList extends StatelessWidget {
             itemBuilder: (context, index) {
               return Container(
                 margin: EdgeInsets.only(left: index == 0 ? 0 : 15),
-                child: movieCard(
+                child: MovieCard(
                   movieModel: movie?[index],
                 ),
               );

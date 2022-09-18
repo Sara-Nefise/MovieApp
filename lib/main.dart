@@ -15,7 +15,6 @@ import 'core/cubit/populerMovie/movie_cubit.dart';
 void main() {
   runApp(MyApp());
 }
-
 class MyApp extends StatelessWidget {
   MyApp({Key? key}) : super(key: key);
   MovieService movieservice = MovieService();

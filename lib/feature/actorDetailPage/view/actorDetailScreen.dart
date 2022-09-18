@@ -81,7 +81,7 @@ class ActorDetailScreen extends StatelessWidget {
                                     ],
                                   ),
                                 ),
-                                featureContainer(
+                                FeatureContainer(
                                     text: actorData?.knownForDepartment),
                               ]),
                           context.emptySizedHeightBoxLow,
